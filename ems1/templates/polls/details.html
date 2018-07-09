@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h2>Details Page</h2>
+    <h3>{{question.title}}</h3>
+    <p>Poll is created by {{question.createBy.first_name}}</p>
+
+    <h2>List of Choices </h2>
+    {% if question.choices %}
+        <ul>
+            {%  for c in question.choices %}
+                <li>
+                   {{ c.text }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> There are no questions choices available. </p>
+    {% endif %}
+
+
+{% endblock content %}
